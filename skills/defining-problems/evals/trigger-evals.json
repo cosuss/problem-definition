@@ -1,0 +1,82 @@
+[
+  {
+    "query": "창업 수업에서 문제정의서 써오라는데 우리 팀 아이템은 대학생 중고 전공책 거래 플랫폼이야. 어떻게 써야 해?",
+    "should_trigger": true
+  },
+  {
+    "query": "problem statement 한 문장으로 써야 되는데 WHO, GAP, WHY 넣으래. 주제는 노인 디지털 소외야",
+    "should_trigger": true
+  },
+  {
+    "query": "우리 카페 매출이 석 달째 떨어지는데 이벤트를 해도 쿠폰을 뿌려도 그때뿐이야. 대체 뭐가 문제인 걸까",
+    "should_trigger": true
+  },
+  {
+    "query": "AI로 대학생 멘탈케어 앱 만들려고 하는데 투자자가 '그래서 누구의 무슨 문제를 푸는 거냐'고 물었을 때 대답을 못 했어",
+    "should_trigger": true
+  },
+  {
+    "query": "팀 프로젝트가 계속 꼬여. 뭐가 문제인지 나도 잘 모르겠어. 정리 좀 도와줘",
+    "should_trigger": true
+  },
+  {
+    "query": "내가 쓴 문제 정의문인데 평가 좀 해줘: '직장인들은 점심 메뉴 고르기를 어려워한다.'",
+    "should_trigger": true
+  },
+  {
+    "query": "농답 서비스가 푸는 문제가 진짜 문제인지 가짜 문제인지 검증해보고 싶어",
+    "should_trigger": true
+  },
+  {
+    "query": "우리 지역 청년 인구 유출을 주제로 사회문제 해결 공모전 나가는데 문제를 어떻게 잡아야 할지 모르겠어",
+    "should_trigger": true
+  },
+  {
+    "query": "신규 가입자는 느는데 한 달 뒤엔 다 안 써. 푸시 알림 늘렸더니 더 빨리 지우더라. 원인을 어떻게 봐야 해?",
+    "should_trigger": true
+  },
+  {
+    "query": "농가 세 곳 전화 인터뷰한 녹취록이 있어. 여기서 우리가 풀 만한 문제 후보 좀 뽑아줘",
+    "should_trigger": true
+  },
+  {
+    "query": "문제는 이미 정했어. 농민이 전문가 답변을 받기까지 평균 3일 걸리는 거야. 이걸 줄일 기능 아이디어를 브레인스토밍하자",
+    "should_trigger": false
+  },
+  {
+    "query": "로그인 버튼 누르면 500 에러 나. 뭐가 문제야?",
+    "should_trigger": false
+  },
+  {
+    "query": "알고리즘 문제 정의가 이해가 안 돼. 백준 1260번 DFS와 BFS 문제 설명해줘",
+    "should_trigger": false
+  },
+  {
+    "query": "이 문제 정의문 영어로 번역해줘: 퇴근 시간이 불규칙한 30대 직장인이 운동을 다시 시작하려 할 때...",
+    "should_trigger": false
+  },
+  {
+    "query": "Rittel과 Webber의 wicked problem 10가지 속성 요약해줘",
+    "should_trigger": false
+  },
+  {
+    "query": "사업계획서 시장 규모 TAM SAM SOM 계산 도와줘. 국내 반려동물 사료 시장이야",
+    "should_trigger": false
+  },
+  {
+    "query": "수학 문제 풀이 좀. 확률변수 X의 정의역이 왜 표본공간이야?",
+    "should_trigger": false
+  },
+  {
+    "query": "랜딩 페이지 히어로 섹션 디자인 다시 해줘. 문제-해결 구조로",
+    "should_trigger": false
+  },
+  {
+    "query": "요즘 그냥 다 귀찮고 뭘 해도 재미가 없어. 얘기 좀 들어줘",
+    "should_trigger": false
+  },
+  {
+    "query": "이 인터뷰 녹취록 오타 고치고 화자별로 정리해줘",
+    "should_trigger": false
+  }
+]
