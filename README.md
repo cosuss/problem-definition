@@ -96,6 +96,7 @@ plugins/problem-definition/            설치되는 플러그인
     └── evals/                         품질·트리거 평가 케이스
 docs/                                  설계 문서 (PRD, TSD)
 scripts/validate.py                    사양 검증
+research/                              이 스킬로 만든 문제 정의 문서 (팀 내부용, 설치물에 들어가지 않음)
 ```
 
 ## 근거 자료
