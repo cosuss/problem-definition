@@ -1,0 +1,23 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 저장소 검증
+        run: python3 scripts/validate.py
+      - name: Agent Skills 사양 검증
+        run: |
+          pip install --quiet skills-ref
+          for skill in plugins/*/skills/*/; do
+            agentskills validate "$skill"
+          done

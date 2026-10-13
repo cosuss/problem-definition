@@ -5,27 +5,25 @@
 ## 1. 파일 구성
 
 ```
-~/workspace/cocone-school/problem-definition/skills/defining-problems/   원본
-├── SKILL.md                               절차와 고정 규칙. 호출 시 전체가 컨텍스트에 들어감
-├── references/
-│   ├── interviews.md                      인터뷰 발언 등급, 대체재, 가설 대조, 후보 견주기
-│   ├── lenses.md                          문제 성격 진단: 유형·4축·고객 관계·수단 출발
-│   ├── systems.md                         사건→패턴→구조, 시스템 함정 8개, 개입 지점
-│   ├── quality-bar.md                     좋은 문제 7조건, 가짜 문제, 고쳐 쓰기 예시
-│   ├── output-template.md                 문제 정의서 템플릿
-│   └── sources.md                         규칙별 출처와 쪽 번호
-├── evals/
-│   ├── evals.json                         결과 품질 eval (skill-creator 형식)
-│   └── trigger-evals.json                 트리거 eval 질의 세트
-└── docs/
-    ├── PRD.md
-    └── TSD.md
-
-~/.agents/skills/defining-problems  →  위 원본                                (Codex용 심볼릭 링크)
-~/.claude/skills/defining-problems  →  ../../.agents/skills/defining-problems   (Claude Code용 심볼릭 링크)
+problem-definition/                              저장소 = 플러그인 마켓플레이스
+├── .claude-plugin/marketplace.json              마켓플레이스 목록 (플러그인 1개)
+├── plugins/problem-definition/                  플러그인 루트. 설치하면 이 폴더만 복사된다
+│   ├── .claude-plugin/plugin.json               version을 두지 않는다 (커밋마다 새 버전)
+│   └── skills/defining-problems/
+│       ├── SKILL.md                             절차와 고정 규칙. 호출 시 전체가 컨텍스트에 들어감
+│       ├── references/
+│       │   ├── interviews.md                    인터뷰 발언 등급, 대체재, 가설 대조, 후보 견주기
+│       │   ├── lenses.md                        문제 성격 진단: 유형·4축·고객 관계·수단 출발
+│       │   ├── systems.md                       사건→패턴→구조, 시스템 함정 8개, 개입 지점
+│       │   ├── quality-bar.md                   좋은 문제 7조건, 가짜 문제, 고쳐 쓰기 예시
+│       │   ├── output-template.md               문제 정의서·후보 문서 템플릿
+│       │   └── sources.md                       규칙별 출처와 쪽 번호
+│       └── evals/                               품질 eval, 트리거 eval
+├── docs/PRD.md, TSD.md                          설계 문서 (배포물에 들어가지 않음)
+├── scripts/validate.py                          사양 검증 (CI와 pre-commit이 실행)
+├── .githooks/                                   pre-commit 검증, post-commit 자동 push
+└── .github/workflows/validate.yml               push·PR마다 검증
 ```
-
-`docs/`와 `evals/`는 SKILL.md에서 링크하지 않으므로 실행 중 컨텍스트에 들어가지 않는다.
 
 ## 2. frontmatter
 
@@ -33,12 +31,13 @@
 |---|---|---|
 | `name` | `defining-problems` | 소문자·하이픈, 디렉터리명과 일치, 동명사형 |
 | `description` | 트리거 상황 나열(한국어 표현 포함) + 제외 조건 | 호출 판단은 name+description만으로 이뤄진다. 절차는 쓰지 않는다. 절차를 요약하면 에이전트가 본문을 건너뛴다 |
-| `argument-hint` | `[상황 설명 또는 검토할 문제 정의문]` | `/defining-problems` 수동 호출 시 안내. Claude Code 전용 필드라 Codex는 무시 |
+| `metadata` | `author`, `language`, `homepage` | 사양이 허용하는 자유 필드. 도구는 해석하지 않는다 |
 
 쓰지 않는 필드와 이유
 
 - `context: fork`: 포크된 서브에이전트는 대화 이력을 보지 못한다. 인터뷰에 부적합.
 - `model`, `allowed-tools`: 호출한 턴에만 적용되어 여러 턴 대화에서는 첫 턴 뒤 효력이 없다.
+- `argument-hint`: Claude Code 전용 필드라 Agent Skills 사양 검증(`agentskills validate`)에서 거부된다. 다른 도구와의 호환을 위해 뺐다.
 - `disable-model-invocation`: 사용자가 "문제 정의"라는 말을 쓰지 않는 상황에서도 불려야 하므로 켜지 않는다.
 
 ## 3. 실행 흐름
@@ -168,20 +167,24 @@ should 4개는 모두 `defining-problems` 호출, should-not 4개는 미호출(2
 유도 질문·2차 노트·표본 1명의 처리. 수정 후 스킬로는 작성 세션에서 직접 적용했고, 깨끗한 컨텍스트의
 서브에이전트 재실행은 하지 않았다. 트리거 재점검도 하지 않았다(description에 인터뷰 문구 추가).
 
-## 7. 설치와 연결
+## 7. 배포와 업데이트
 
-```bash
-# 원본은 ~/workspace/cocone-school/problem-definition/skills/defining-problems/
-ln -s ~/workspace/cocone-school/problem-definition/skills/defining-problems ~/.agents/skills/defining-problems
-ln -s ../../.agents/skills/defining-problems ~/.claude/skills/defining-problems
-```
+설치 방법은 저장소 `README.md`에 있다. 여기에는 구조가 왜 이런지만 적는다.
 
-- Claude Code: `~/.claude/skills/` 개인 스킬로 인식. 수동 호출은 `/defining-problems <상황>`.
-- Codex: `~/.agents/skills/`의 심볼릭 링크를 따라 읽는다. `argument-hint`는 무시된다.
-- 제거: 심볼릭 링크와 원본 디렉터리를 지운다.
+- **플러그인을 하위 폴더에 둔 이유**: 마켓플레이스 항목의 `source`가 `./plugins/problem-definition`이면
+  설치할 때 그 폴더만 캐시에 복사된다. 설계 문서와 스크립트는 사용자 컨텍스트에 들어가지 않는다.
+- **`version`을 두지 않는 이유**: `version`을 적으면 그 문자열이 바뀔 때까지 사용자가 캐시된 사본에 머문다.
+  생략하면 커밋 SHA가 버전이 되어 push할 때마다 새 버전으로 인식된다.
+- **자동 업데이트는 받는 쪽이 켠다**: 마켓플레이스 파일에는 자동 업데이트를 켜는 필드가 없다. 각 사용자가
+  `/plugin` → Marketplaces에서 켜거나 `/plugin marketplace update`를 실행한다.
+- **작성자 쪽 반영**: 작성자의 `~/.agents/skills/defining-problems`는 이 저장소의 스킬 폴더를 가리키는
+  심볼릭 링크라 편집 즉시 반영된다. 커밋하면 `.githooks/post-commit`이 `main`을 push한다.
+- **다른 도구**: `npx skills add cosuss/problem-definition`은 `.claude-plugin/marketplace.json`을 읽어 스킬을
+  찾는다. Codex 등은 이 경로로 설치하고 `npx skills update`로 갱신한다.
 
 ## 8. 유지보수
 
 - 자료를 추가하면 `references/`의 해당 파일에 규칙으로 넣고 `sources.md`에 출처를 적는다. SKILL.md는 늘리지 않는다.
 - 본문을 고치기 전에 고치려는 실패가 실제로 나오는 케이스를 `evals/evals.json`에 먼저 추가한다.
-- 쪽 번호는 사용자가 가진 PDF 기준이다. Forrester는 스캔본 OCR이라 일부 쪽만 원본과 대조했다.
+- 커밋 전에 `python3 scripts/validate.py`가 통과해야 한다(pre-commit 훅이 실행한다).
+- 쪽 번호는 `sources.md`에 적은 판본 기준이다. Forrester는 스캔본 OCR이라 일부 쪽만 원본과 대조했다.

@@ -1,7 +1,10 @@
 ---
 name: defining-problems
 description: Use when someone needs to work out what the problem actually is before solving it — 문제 정의, 문제정의서나 문제 정의문(problem statement) 작성, 창업 아이템·사업계획·수업 과제의 문제 검증, 고객·현장 인터뷰 기록에서 문제 후보를 뽑을 때, 해결책이나 아이디어는 있는데 누구의 어떤 문제인지 흐릿할 때, 대책을 써도 같은 문제가 되풀이될 때, "뭐가 문제인지 모르겠다"는 막연한 상황 설명. Also use to review or sharpen an existing problem statement. Not for building a solution to an already-agreed problem, feature or UI design, or debugging code.
-argument-hint: "[상황 설명 또는 검토할 문제 정의문]"
+metadata:
+  author: cosuss
+  language: ko
+  homepage: https://github.com/cosuss/problem-definition
 ---
 
 # 문제 정의하기

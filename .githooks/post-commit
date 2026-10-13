@@ -1,0 +1,12 @@
+#!/bin/sh
+# main에 커밋하면 바로 원격에 올린다. 스킬을 받아 쓰는 사람들은 push된 커밋을 새 버전으로 받는다.
+# 끄려면: git config --unset core.hooksPath
+branch=$(git symbolic-ref --short -q HEAD)
+[ "$branch" = "main" ] || exit 0
+git remote get-url origin >/dev/null 2>&1 || exit 0
+if git push --quiet origin main; then
+  echo "post-commit: origin/main에 반영했다 ($(git rev-parse --short HEAD))"
+else
+  echo "post-commit: push에 실패했다. 네트워크나 인증을 확인한 뒤 'git push'를 직접 실행한다." >&2
+fi
+exit 0

@@ -1,28 +1,28 @@
 # 출처
 
 실행 중에는 읽지 않아도 된다. 사용자가 "이 규칙의 근거가 뭐야"라고 물을 때와 스킬을 고칠 때 쓴다.
-쪽 번호는 사용자가 가진 PDF 기준이다. `[조합]`은 원문에 그 형태로 없고 여러 자료를 묶어 만든 규칙이다.
+`[조합]`은 원문에 그 형태로 없고 여러 자료를 묶어 만든 규칙이다.
 
-## 자료 위치
+## 참고 문헌
 
-`~/Documents/Library/200 도서·참고자료/250 논문·리포트/GCS 9th/`
-- 맥킨지 식 문제해결기법.pdf (I부 18쪽만 수록)
-- 문제해결능력-한국산업인력공단.pdf
-- Sequoia-The arc PMF framework.pdf
-- Rittel Webber-1973-Wicked Problem.pdf
-- Meadows-2008.-Thinking-in-Systems.pdf
-- Jay Forrester-1999-Urban Dynamics.pdf (스캔본. OCR로 읽었고 pp.10–13, 106–107, 128–129만 원본 대조)
-- Sarasvathy-2001-Causation Effectuation.pdf
-- Delmar-2003-Does business planning facilitate the development of new ventures.pdf
+쪽 번호는 아래 판본 기준이다.
 
-`~/Documents/Library/100 기초·자기관리/130 학업·수업/`
-- 20260901_GCS9기_몰입캠프특강_문제의탄생.pdf (장대익)
-- 2026-2-AI와 문제해결-AI와 문제정의.pdf (가천대)
+공개 문헌
+- Rittel, H. W. J., & Webber, M. M. (1973). Dilemmas in a General Theory of Planning. *Policy Sciences*, 4(2), 155–169.
+- Meadows, D. H. (2008). *Thinking in Systems: A Primer*. Chelsea Green.
+- Forrester, J. W. (1969). *Urban Dynamics*. MIT Press. (1999년 재판본. 스캔본을 OCR로 읽었고 pp.10–13, 106–107, 128–129만 원본과 대조했다)
+- Sarasvathy, S. D. (2001). Causation and Effectuation. *Academy of Management Review*, 26(2), 243–263.
+- Delmar, F., & Shane, S. (2003). Does Business Planning Facilitate the Development of New Ventures? *Strategic Management Journal*, 24, 1165–1185.
+- Sequoia Capital. *The Arc Product-Market Fit Framework*.
+- 한국산업인력공단. 『직업기초능력 가이드북: 문제해결능력』(학습자용).
 
-`~/Downloads/` (받은 위치. 옮기면 여기를 고친다)
-- KITA 진형석 박사님 강연.txt (2026-10-12 가천대 코코네 특강 녹취. 음성 인식 오류 많음)
-- ☆진형석, 발표자료 사본, 261012 가천대 코코네 특강.pdf (96쪽. 문제 정의를 직접 다루는 쪽은 p.7~8,
-  나머지는 수출 실무와 오픈이노베이션. 쓸 내용은 대부분 녹취 앞 60분의 투명 커피 사례에서 나왔다)
+강의·교육 자료 (비공개 자료. 이 스킬에는 규칙으로 옮긴 내용과 쪽 번호만 있다)
+- 「맥킨지 식 문제해결기법」 교육 슬라이드 (I부 18쪽)
+- 장대익, 「문제의 탄생: 왜 우리는 답부터 찾으려 하는가」, GCS 9기 몰입캠프 특강 (2026-09-01)
+- 가천대 「AI와 스타트업 문제해결」 3주차 「AI와 문제정의」 강의 슬라이드 (2026-2)
+- 진형석, 가천대 코코네 특강 (2026-10-12) 녹취와 슬라이드 96쪽. 문제 정의를 직접 다루는 쪽은 p.7~8이고
+  나머지는 수출 실무와 오픈이노베이션이다. 쓸 내용은 대부분 녹취 앞 60분의 투명 커피 사례에서 나왔다.
+  녹취는 음성 인식 오류가 많아 `[mm:ss]`로 위치만 표시한다.
 
 ## SKILL.md
 
@@ -107,7 +107,7 @@
 |---|---|
 | 한 문장 공식, 운동·진로 예시 | 문제의 탄생 pp.62–63 |
 | WHO · GAP · WHY | AI와 문제정의 p.7 |
-| 겪는 사람과 지불자 구분 | 사용자의 문제정의 과제(사회적 가치 페스타) 작성 기준 |
+| 겪는 사람과 지불자 구분 | `[조합]` 창업 수업 문제정의 과제 양식(수혜자와 실제 지불 고객을 구분) + 진형석 녹취 [1:42:35] |
 | 질문·증상과 문제의 구분, 재구매 예시 | 문제의 탄생 p.14 |
 | HMW 좋은 예·나쁜 예 | 문제의 탄생 pp.58–59 |
 | 회의 예시 | 문제의 탄생 p.23, p.50 |
